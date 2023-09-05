@@ -229,20 +229,20 @@ case $CMD in
     usage
     ;;
   "ci" )
-    mvn -q clean install dependency:go-offline -P dist $MAVEN_IGNORE
+    ./mvnw -q clean install dependency:go-offline -P dist $MAVEN_IGNORE
     ;;
   "build" )
-    mvn clean install -P dist $MAVEN_IGNORE -T1.0C $*
+    ./mvnw clean install -P dist $MAVEN_IGNORE -T1.0C $*
     ;;
   "dist" )
-    mvn install -P dist $MAVEN_IGNORE -pl :distribution
+    ./mvnw install -P dist $MAVEN_IGNORE -pl :distribution
     ;;
   "tools" )
-    mvn install -pl :druid-it-tools
+    ./mvnw install -pl :druid-it-tools
     ;;
   "image" )
     cd $DRUID_DEV/integration-tests-ex/image
-    mvn install -P test-image $MAVEN_IGNORE
+    ./mvnw install -P test-image $MAVEN_IGNORE
     ;;
   "gen")
     # Generate the docker-compose.yaml files. Mostly for debugging
